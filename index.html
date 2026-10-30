@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="রাস্তা কি তোর বাপের? — Dhaka CNG rickshaw chaos simulator. Honk, squeeze, dodge cows. The road is your father's." />
+  <title>রাস্তা কি তোর বাপের? 😤</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛺</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrap">
+    <canvas id="game" width="480" height="720"></canvas>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <div class="hud-line" id="hud-mouthful">০ মিটার জয় করা 🏁</div>
+        <div class="hud-line small" id="hud-taka">🪙 ৫ টাকার ব্যাগ</div>
+        <div class="hud-line small" id="hud-nearmiss">👻 কাছাকাছি পাশ: ০</div>
+      </div>
+      <div class="hud-right">
+        <div class="hud-line small" id="hud-score">🥇 সেরা: ০</div>
+      </div>
+    </div>
+
+    <!-- floating commentary -->
+    <div id="commentary"></div>
+
+    <!-- MENU -->
+    <div id="menu" class="panel">
+      <h1>রাস্তা কি তোর বাপের?<span class="emoji-life">😤</span></h1>
+      <p class="subtitle">Dhaka CNG Chaos Simulator™</p>
+      <div class="rules">
+        <p>🛺 তুমি একজন CNG চালক। এই রাস্তা <b>তোর বাপের</b>। নিয়ম? কনফিউজড। সিগন্যাল? শুনেছো একবার।</p>
+        <p class="en">You drive a CNG auto. The road belongs to your father. Rules? Unfamiliar. Traffic signal? Heard of it once.</p>
+        <ul>
+          <li>⬅️➡️ / A D — লেন বদল (change lanes)</li>
+          <li>⌨️ SPACE — হর্ন 📢 (cars literally flee in fear)</li>
+          <li>📱 ফোনে: বাম/ডান অর্ধেক ট্যাপ = লেন বদল, মাঝখান = হর্ন</li>
+          <li>🪙 বাপের টাকা কুড়াও · 🐄 গরুকে বাইপাস · 🕳️ গর্ত খাওয়া কমাও</li>
+        </ul>
+      </div>
+      <button id="btn-start" class="big-btn">🏁 চালাও ভাই (START)</button>
+      <p class="disclaimer">⚠️ সতর্কতা: আসল ঢাকায় এভাবে চালালে মামা ধরে নিবে। এখানে শুধু গরু মারবেন, রাস্তা নয়।<br><span class="en">Warning: this behaviour is illegal in real Dhaka. Crash responsibly.</span></p>
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="over" class="panel hidden">
+      <h2 id="over-quote">মামা, বাসটা দেখি নাই 👀</h2>
+      <p class="over-sub en" id="over-quote-en">'Mama, I didn't see the bus.'</p>
+      <div class="over-stats">
+        <div>🏁 <b id="over-meters">0</b> <span>মিটার বাপের রাস্তা</span></div>
+        <div>🪙 <b id="over-taka">0</b> <span>টাকা কুড়িয়েছো</span></div>
+        <div>👻 <b id="over-near">0</b> <span>কাছাকাছি পাশ</span></div>
+      </div>
+      <p id="over-newbest" class="newbest hidden">🥇 নতুন রেকর্ড! রাস্তা এখন সত্যিই তোর বাপের।</p>
+      <button id="btn-retry" class="big-btn">🔁 আবারও (RETRY)</button>
+      <p class="en small">press SPACE / tap to retry</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
